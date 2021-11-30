@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/movieFragment">
+
+    <fragment
+        android:id="@+id/movieFragment"
+        android:name="com.centerpedia.testfinalapplicationsharivar.ui.movie.MovieFragment"
+        android:label="movie"
+        tools:layout="@layout/fragment_movie" >
+        <action
+            android:id="@+id/action_movieFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.centerpedia.testfinalapplicationsharivar.ui.detail.MovieDetailFragment"
+        android:label="movie detail"
+        tools:layout="@layout/fragment_movie_detail" >
+        <argument
+            android:name="omdbId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_movieDetailFragment_to_movieFragment"
+            app:destination="@id/movieFragment"
+            app:popUpTo="@id/movieFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/myMovieFragment"
+        android:name="com.centerpedia.testfinalapplicationsharivar.ui.mymovie.MyMovieFragment"
+        android:label="my_movie"
+        tools:layout="@layout/fragment_my_movie" >
+        <action
+            android:id="@+id/action_myMovieFragment_to_movieFragment"
+            app:destination="@id/movieFragment"
+            app:popUpTo="@id/movieFragment" />
+
+        <action
+            android:id="@+id/action_myMovieFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+</navigation>
